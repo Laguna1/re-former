@@ -1,0 +1,39 @@
+<h1>Form_for User</h1>
+<ul>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message|%>\
+  <h3><%= message %> </h3>
+  <%end%>
+<%end%>
+  <%= f.label :username %>
+  <%= f.text_field :username, class: 'form-control' %><br>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %><br>
+ <%= f.submit %>
+<% end %>
+</ul>
+
+<ul>
+<%= form_for @user do |user_form| %> 
+  <% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message|%>\
+  <h3><%= message %> </h3>
+  <%end%>
+<%end%>
+  <%= user_form.label :username, 'Your username here ->' %>
+  <%= user_form.text_field :username, value: 'an_awesome_username' %><br>
+
+  <%= user_form.label :email, 'Dump your email here ->' %>
+  <%= user_form.email_field :email, value: 'example@example.com' %><br>
+
+  <%= user_form.label :password, 'Secret password ->' %>
+  <%= user_form.password_field :password %><br>
+
+  <%= user_form.submit %>
+<% end %>
+</ul>
